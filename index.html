@@ -252,6 +252,119 @@ a, button { touch-action: manipulation; }
   #cursor { display: none; }
 }
 
+
+/* Responsive fix: 01 / The story behind the screen */
+@media (max-width: 760px) {
+  #story .story-intro,
+  #story .story-intro > div {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  #story .story-intro h2 {
+    font-size: clamp(34px, 9vw, 54px);
+    line-height: .98;
+    overflow-wrap: anywhere;
+  }
+  #story .story-intro p {
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(16px, 4.4vw, 20px);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+  #story .story-step {
+    width: 100%;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 12px;
+    padding: 28px 0;
+  }
+  #story .story-step h3 {
+    min-width: 0;
+    font-size: clamp(25px, 7.5vw, 36px);
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
+  #story .story-step p {
+    grid-column: 2;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+  #story .story-step .num {
+    padding-top: 4px;
+  }
+  #story .profile-strip {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 420px) {
+  #story .story-intro h2 { font-size: clamp(31px, 8.7vw, 38px); }
+  #story .story-step { grid-template-columns: 28px minmax(0, 1fr); gap: 9px; }
+  #story .story-step h3 { font-size: clamp(23px, 7.2vw, 30px); }
+}
+
+
+/* FINAL MOBILE FIX: story section must use the full viewport width */
+@media screen and (max-width: 760px) {
+  #story { overflow: hidden; }
+  #story .story-intro {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100%;
+    gap: 22px;
+  }
+  #story .story-intro > div,
+  #story .story-intro p {
+    width: 100%;
+    max-width: 100% !important;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  #story .story-step {
+    display: grid !important;
+    grid-template-columns: 38px minmax(0, 1fr) !important;
+    gap: 14px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  #story .story-step > .num {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    writing-mode: vertical-rl;
+    overflow-wrap: normal;
+  }
+  #story .story-step > div:nth-child(2),
+  #story .story-step > div:nth-child(3) {
+    grid-column: 2;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  #story .story-step h3 {
+    font-size: clamp(25px, 8vw, 38px);
+    line-height: 1.02;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  #story .story-step p {
+    width: 100%;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.65;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+  #story .story-step .step-mark { display: none; }
+}
+
 </style>
 </head>
 <body>
